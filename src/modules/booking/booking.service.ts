@@ -3,8 +3,9 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Booking } from './schemas/booking.schema';
 import { Model } from 'mongoose';
 import { MetricsService } from '../metrics/metrics.service';
-import { sendMail } from '../utils/mail';
+import { sendMail } from '../../common/utils/mail';
 import { ConfigService } from '@nestjs/config';
+import { BookingPayload } from './interface/booking.interface';
 
 @Injectable()
 export class BookingService {
@@ -12,9 +13,9 @@ export class BookingService {
     @InjectModel(Booking.name) private bookingModel: Model<Booking>,
     private metricsService: MetricsService,
     private configService: ConfigService,
-  ) {}
+  ) { }
 
-  async createBooking(data: any, apiPath: string, method: string) {
+  async createBooking(data: BookingPayload, apiPath: string, method: string) {
     console.log('Booking data in service:', data);
     const end = this.metricsService.startTimer();
     const { name, email, phonenumber, servicetype, location, image, ip } = data;
@@ -53,4 +54,4 @@ export class BookingService {
     }
   }
 }
-        // configService.get<string>('MONGO_URL'),
+// configService.get<string>('MONGO_URL'),

@@ -9,6 +9,8 @@
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
+    "start:cats-api:dev": "nest start @app/cats-api --debug --watch",
+    "start:auth-api:dev": "nest start @app/auth-api --debug --watch",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -90,3 +92,5 @@
     "testEnvironment": "node"
   }
 }
+
+

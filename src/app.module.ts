@@ -2,8 +2,8 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { BookingModule } from './booking/booking.module';
-import { HealthModule } from './health/health.module';
+import { BookingModule } from './modules/booking/booking.module';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
